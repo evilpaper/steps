@@ -3,18 +3,22 @@ version 42
 __lua__
 function _init()
  -- called once on program startup
- x=-10
+ x=60
+ y=60
 end
 
 function _update60()
  -- called once per update at 60fps
- x=x+0.5
+ if (btn(0)) then x=x-0.5 end
+ if (btn(1)) then x=x+0.5 end
+ if (btn(2)) then y=y-0.5 end
+ if (btn(3)) then y=y+0.5 end
 end
 
 function _draw()
  -- called once per visible frame
  cls(0)
- spr(1,x,60)
+ spr(1,x,y)
 end
 
 __gfx__

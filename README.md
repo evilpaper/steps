@@ -5,3 +5,4 @@
 3. Make it move. Introduce variable. We call it x. Set inital value in \_init(), increase it in \_update60() and use as x value in spr().
 4. Make it interactive. Listen for buttons and update the variable x accordingly. Will make our character move around on the screen.
 5. Make it alive. Our character is static, lets make him move by switching sprite at a certain interval, aka sprite animation.
+6. Make is more realistic. Add variable to control character direction.

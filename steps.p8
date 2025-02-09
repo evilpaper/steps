@@ -5,6 +5,7 @@ function _init()
  x=60
  y=60
  sprite=1
+ direction="right"
  tick=0
 end
 
@@ -17,8 +18,14 @@ function _update60()
   if (sprite==3) then sprite=1 end
  end 
  
- if (btn(0)) then x=x-0.5 end
- if (btn(1)) then x=x+0.5 end
+ if (btn(0)) then 
+  x=x-0.5 
+  direction="left"
+ end
+ if (btn(1)) then 
+  x=x+0.5 
+  direction="right"
+ end
  if (btn(2)) then y=y-0.5 end
  if (btn(3)) then y=y+0.5 end
  
@@ -26,7 +33,7 @@ end
 
 function _draw()
  cls(0)
- spr(sprite,x,y)
+ spr(sprite,x,y,1,1,direction=="left")
 end
 
 __gfx__

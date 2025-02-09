@@ -5,12 +5,37 @@ function _init()
  -- called once on program startup
  x=60
  y=60
+<<<<<<< Updated upstream
 end
 
 function _update60()
  -- called once per update at 60fps
  if (btn(0)) then x=x-0.5 end
  if (btn(1)) then x=x+0.5 end
+=======
+ sprite=1
+ direction="right"
+ tick=0
+end
+
+function _update60()
+
+ tick=tick+1
+ 
+ if (tick%20==0) then
+  sprite=sprite+1
+  if (sprite==3) then sprite=1 end
+ end 
+ 
+ if (btn(0)) then 
+  x=x-0.5 
+  direction="left"
+ end
+ if (btn(1)) then 
+  x=x+0.5 
+  direction="right"
+ end
+>>>>>>> Stashed changes
  if (btn(2)) then y=y-0.5 end
  if (btn(3)) then y=y+0.5 end
 end
@@ -18,7 +43,11 @@ end
 function _draw()
  -- called once per visible frame
  cls(0)
+<<<<<<< Updated upstream
  spr(1,x,y)
+=======
+ spr(sprite,x,y,1,1,direction=="left")
+>>>>>>> Stashed changes
 end
 
 __gfx__

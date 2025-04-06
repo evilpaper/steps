@@ -10,3 +10,4 @@ But keep it as dead simple as possible. No clue where it will end up.
 5. Make it alive. Our character is static, lets make him move by switching sprite at a certain interval, aka sprite animation.
 6. Make is more realistic. Add variable to control character direction.
 7. Even more alive. Add player states and show different sprites depending on player state.
+8. Refactor. Move player animation to own function.

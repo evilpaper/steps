@@ -2,54 +2,56 @@ pico-8 cartridge // http://www.pico-8.com
 version 42
 __lua__
 function _init()
- x=60
- y=60
- sprite=1
- direction="right"
- tick=0
- pstate="idle"
+ player={
+  x=60,
+  y=60,
+  sprite=1,
+  direction="right",
+  tick=0,
+  state="idle"
+ }
 end
 
 function _update60()
-
- tick=tick+1
- 
  
  if (btn(0)) then 
-  x=x-0.5 
-  pstate="walking"
-  direction="left"
+  player.x=player.x-0.5 
+  player.state="walking"
+  player.direction="left"
  elseif (btn(1)) then 
-  x=x+0.5 
-  pstate="walking"
-  direction="right"
+  player.x=player.x+0.5 
+  player.state="walking"
+  player.direction="right"
  elseif (btn(2)) then 
-  pstate="walking"
-  y=y-0.5
+  player.state="walking"
+  player.y=player.y-0.5
  elseif (btn(3)) then 
-  pstate="walking"
-  y=y+0.5 
+  player.state="walking"
+  player.y=player.y+0.5 
  else 
-  pstate="idle"
+  player.state="idle"
  end
  
- animate()
+ animate(player)
  
 end
 
 function _draw()
  cls(0)
- spr(sprite,x,y,1,1,direction=="left")
+ spr(player.sprite,player.x,player.y,1,1,player.direction=="left")
 end
 
-function animate()
- if (pstate=="walking") then
-  if (tick%15==0) then
-   sprite=sprite+1
-   if (sprite==3) then sprite=1 end
+function animate(p)
+
+  player.tick=player.tick+1
+
+ if (p.state=="walking") then
+  if (p.tick%15==0) then
+   p.sprite=p.sprite+1
+   if (p.sprite==3) then p.sprite=1 end
   end
  else
-   sprite=1 
+   p.sprite=1 
  end
 end
 __gfx__

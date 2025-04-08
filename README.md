@@ -12,3 +12,4 @@ But keep it as dead simple as possible. No clue where it will end up.
 7. Even more alive. Add player states and show different sprites depending on player state.
 8. Refactor. Move player animation to own function.
 9. Refactor. Wrap player in a table instead of indivudual variables.
+10. Add separate walking animations and logic to handle different animations for different player states.

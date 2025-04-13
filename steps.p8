@@ -10,7 +10,7 @@ function _init()
   tick=0,
   state="idle",
   anims={
-    idle={1,1,,6,6},
+    idle={1,1,6,6},
     walking={2,3,4,5}
   }
  }
@@ -46,23 +46,11 @@ function _draw()
 end
 
 function animate(p)
-
-  player.tick=player.tick+1
-
-  if p.state == "walking" then
-    -- Calculate the current frame index for the walking animation
-    local frame_index = flr(p.tick / 8) % #p.anims.walking + 1
-    -- Set the sprite to the corresponding frame
-    p.sprite = p.anims.walking[frame_index]
-  elseif p.state == "idle" then
-    -- Calculate the current frame index for the walking animation
-    local frame_index = flr(p.tick / 8) % #p.anims.idle + 1
-    -- Set the sprite to the corresponding frame
-    p.sprite = p.anims.idle[frame_index]
-  else
-    -- Default to the idle sprite
-    p.sprite = p.anims.idle[1]
-  end
+ player.tick=player.tick+1
+ -- Calculate the current frame index for the walking animation
+ local frame_index = flr(p.tick / 8) % #p.anims[p.state] + 1
+ -- Set the sprite to the corresponding frame
+ p.sprite = p.anims[p.state][frame_index]
 end
 __gfx__
 00000000000e800000000000000e8000000e80000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000

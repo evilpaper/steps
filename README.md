@@ -14,3 +14,4 @@ But keep it as dead simple as possible. No clue where it will end up.
 9. Refactor. Wrap player in a table instead of indivudual variables.
 10. Add separate walking animations and logic to handle different animations for different player states.
 11. Add idle animation.
+12. Refactor. Use player state to remove if logic in animation function.

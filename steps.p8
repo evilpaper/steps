@@ -10,10 +10,13 @@ function _init()
   tick=0,
   state="idle",
   anims={
-    idle={1,1,6,6},
-    walking={2,3,4,5}
+    idle={fr=30,1,6}, -- fr = frame rate
+    walking={fr=10,2,3,4,5}
   }
  }
+
+ player.playing=player.state
+ player.animindex = 1
 end
 
 function _update60()
@@ -46,11 +49,24 @@ function _draw()
 end
 
 function animate(p)
- player.tick=player.tick+1
- -- Calculate the current frame index for the walking animation
- local frame_index = flr(p.tick / 8) % #p.anims[p.state] + 1
+
+-- Start new animation if the state has changed
+if (p.state!=p.playing) then
+ p.tick=0
+ p.playing=p.state
+ p.animindex = 1
+end
+
+p.tick=p.tick+1
+
+-- The current frame has been on screen long enough
+if (p.tick >= p.anims[p.state].fr) then
+ p.tick=0
+ -- Goto next frame
+ p.animindex = (p.animindex % #p.anims[p.state]) + 1
+end
  -- Set the sprite to the corresponding frame
- p.sprite = p.anims[p.state][frame_index]
+ p.sprite = p.anims[p.state][p.animindex]
 end
 __gfx__
 00000000000e800000000000000e8000000e80000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000

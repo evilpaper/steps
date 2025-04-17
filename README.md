@@ -15,4 +15,5 @@ But keep it as dead simple as possible. No clue where it will end up.
 10. Add separate walking animations and logic to handle different animations for different player states.
 11. Add idle animation.
 12. Refactor. Use player state to remove if logic in animation function.
-13. Add frame rate to control interval of each individual animation
+13. Add frame rate to control interval of each individual animation.
+14. Make player able to move diagonal.

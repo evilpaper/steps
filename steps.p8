@@ -20,23 +20,29 @@ function _init()
 end
 
 function _update60()
+
+ player.state="idle"
  
- if (btn(0)) then 
+ if (btn(⬅️)) then 
   player.x=player.x-0.5 
   player.state="walking"
   player.direction="left"
- elseif (btn(1)) then 
+ end
+ 
+ if (btn(➡️)) then 
   player.x=player.x+0.5 
   player.state="walking"
   player.direction="right"
- elseif (btn(2)) then 
+ end
+ 
+ if (btn(⬆️)) then 
   player.state="walking"
   player.y=player.y-0.5
- elseif (btn(3)) then 
+ end
+ 
+ if (btn(⬇️)) then 
   player.state="walking"
   player.y=player.y+0.5 
- else 
-  player.state="idle"
  end
  
  animate(player)
